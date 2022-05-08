@@ -1,0 +1,3 @@
+[Thumbnailer Entry]
+Exec=/usr/local/libexec/gcode-thumbnailer %i %o
+MimeType=text/x.gcode;
