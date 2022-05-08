@@ -3,7 +3,6 @@ use std::{
     io::{prelude::*, BufReader},
 };
 use structopt::StructOpt;
-use systemd::journal;
 
 #[derive(Debug, StructOpt)]
 struct Opt {
@@ -12,11 +11,9 @@ struct Opt {
 }
 
 fn main() {
-    journal::print(1, &format!("ARGS: {:?}", std::env::args()));
     let opt = Opt::from_args();
     let input = opt.input.trim_start_matches("file://");
     let output = opt.output.trim_start_matches("file://");
-    journal::print(1, &format!("Generating thumbnail for {:?}", input));
     let file = fs::File::open(&input).unwrap();
     let bufreader = BufReader::new(file);
     let mut inthumbnail = false;

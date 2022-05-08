@@ -8,4 +8,3 @@ edition = "2018"
 [dependencies]
 base64 = "0.13"
 structopt = "0.3"
-systemd = "0.8"
