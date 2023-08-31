@@ -14,7 +14,7 @@ fn main() {
     let opt = Opt::from_args();
     let input = opt.input.trim_start_matches("file://");
     let output = opt.output.trim_start_matches("file://");
-    let file = fs::File::open(&input).unwrap();
+    let file = fs::File::open(input).unwrap();
     let bufreader = BufReader::new(file);
     let mut inthumbnail = false;
     let mut thumbnail: String = String::new();
@@ -31,6 +31,6 @@ fn main() {
         }
     }
     if !thumbnail.is_empty() {
-        fs::write(output, &base64::decode(&thumbnail).unwrap()).unwrap();
+        fs::write(output, base64::decode(&thumbnail).unwrap()).unwrap();
     }
 }
