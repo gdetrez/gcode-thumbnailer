@@ -1,19 +1,17 @@
 use std::{
-    fs,
+    env, fs,
     io::{prelude::*, BufReader},
 };
-use structopt::StructOpt;
 
-#[derive(Debug, StructOpt)]
-struct Opt {
-    input: String,
-    output: String,
-}
+const EX_USAGE: i32 = 64;
 
 fn main() {
-    let opt = Opt::from_args();
-    let input = opt.input.trim_start_matches("file://");
-    let output = opt.output.trim_start_matches("file://");
+    let [_, input, output] = &std::env::args().collect::<Vec<_>>()[..] else {
+        eprintln!("Usage: {} INPUT OUTPUT", env!("CARGO_PKG_NAME"));
+        std::process::exit(EX_USAGE);
+    };
+    let input = input.trim_start_matches("file://");
+    let output = output.trim_start_matches("file://");
     let file = fs::File::open(input).unwrap();
     let bufreader = BufReader::new(file);
     let mut inthumbnail = false;
