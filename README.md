@@ -16,3 +16,9 @@ G_MESSAGES_DEBUG=all nautilus ~/Prints
 
 Make sure there's no existing instance of nautilus first, otherwise this will
 exit immediately!
+
+Query the mime-type of a file:
+```console
+$ xdg-mime query filetype mymodel.3mf
+model/3mf
+```
