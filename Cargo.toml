@@ -7,3 +7,4 @@ edition = "2018"
 
 [dependencies]
 base64 = "0.13"
+zip = "2.1.3"
