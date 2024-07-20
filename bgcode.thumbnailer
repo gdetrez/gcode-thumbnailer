@@ -1,0 +1,3 @@
+[Thumbnailer Entry]
+Exec=/usr/local/libexec/bgcode-thumbnailer %i %o
+MimeType=application/octet-stream;
