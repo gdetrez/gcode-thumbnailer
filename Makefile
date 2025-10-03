@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	cargo build --bin=gcode-thumbnailer --bin=3mf-thumbnailer --release
+	cargo build --bin=bgcode-thumbnailer --bin=gcode-thumbnailer --bin=3mf-thumbnailer --release
 
 .PHONY: install
 install:
